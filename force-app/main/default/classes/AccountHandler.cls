@@ -6,7 +6,7 @@ public with sharing class AccountHandler {
 
         try {
             Account a = new Account(Name = inputString);
-            update a;
+            insert a;
             return a;
 
         } catch (DMLException e) {
