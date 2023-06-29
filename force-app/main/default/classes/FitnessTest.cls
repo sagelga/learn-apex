@@ -1,24 +1,25 @@
 @isTest
 public class FitnessTest {
+
     @isTest
-    public static void calculateBMITestNormal(){
-        Fitness ft = new Fitness();
-        List<Double> weightList = new List<Double>{50,60,70,80,90,50,60,70,80,90};
-        List<Double> heightList = new List<Double>{1.5, 1.6, 1.7, 1.8, 1.9, 1.9, 1.8, 1.7, 1.6, 1.5};
-        List<Double> resultList = new List<Double>{22.2, 23.43,24.2214};
+    public static void testCalculateBMI() {
+        Double weight = 70.0;
+        Double height = 1.75;
+        Double expectedBMI = 22.857142857142858; // Expected BMI calculated manually
         
-        for (Integer i; i<10; i++){
-            Double weight = weightList[i];
-            Double height = heightList[i];
-        	Double testCase = fitness.calculateBMI(weight, height);
-			Double result = resultList[i];
-            System.assertEquals(result, testCase);
-        }
+        Double actualBMI = Fitness.calculateBMI(weight, height);
+        
+        Assert.areEqual(expectedBMI, actualBMI); 
     }
-    
+
     @isTest
-    public static void calculateBMITestWeird(){
+    public static void testCalculatePace() {
+        Double distance = 10.0;
+        Double minuteTime = 60.0;
+        Double expectedPace = 0.16666666666666666; // Expected pace calculated manually
         
+        Double actualPace = Fitness.calculatePace(distance, minuteTime);
+        
+        Assert.areEqual(expectedPace, actualPace); 
     }
-        
 }
