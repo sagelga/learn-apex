@@ -1,16 +1,17 @@
 public with sharing class AccountHandler {
-    public AccountHandler() {
-    }
+    public static void insertAccount(Integer newAccounts) {
+        List<Account> addAccounts = new List<Account>();
 
-    public static Account insertNewAccount(String inputString) {
-
-        try {
-            Account a = new Account(Name = inputString);
-            insert a;
-            return a;
-
-        } catch (DMLException e) {
-            return null;
+       	Integer n = 1;
+        while (n<=newAccounts){
+            Account acc = new Account();
+            acc.Name = 'Acme Inc ' + n;
+            acc.AccountNumber = 'A00'+ n;
+          	addAccounts.add(acc);
+            n++;
+            System.debug(acc);
         }
+
+        insert addAccounts;
     }
 }
